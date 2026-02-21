@@ -1,0 +1,422 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+    --primary-color: #fafafa;
+    --accent-color: #ffffff; /* Gold/Beige accent */
+    --bg-color: #8b8585;
+    --text-color: #fffafa;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: #DCA1A1;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: #800020;
+    transition: 0.3s;
+}
+
+/* --- NAVIGATION --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%); 
+    width: 170px; 
+    z-index: 1002; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+.nav-links li a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/backgroundHero.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    animation: bounce 2s infinite;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* --- SECTIONS --- */
+section {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-box {
+    background: #800020;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.rsvp-box{
+    background-color: #800020;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* --- COUNTDOWN --- */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-val {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+}
+
+.time-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- SCHEDULE --- */
+.schedule-item {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-time {
+    font-weight: bold;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.entourage-list{
+    list-style-type: none;
+    margin: 30px;
+
+}
+
+.entourage li{
+    padding: 5px;
+}
+
+.entourage-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.entourage-left,
+.entourage-right{
+    flex: 1;
+    min-width: 250px;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 100vh;
+        top: 0px;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        transform: translateX(0%);
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* --- FINER DETAILS (Redesigned) --- */
+.finer-details {
+    text-align: center;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    margin-top: 40px;
+    color: #333;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: #800020;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.detail-block, 
+.reminders-block {
+    margin-bottom: 35px;
+}
+
+.detail-block h3, 
+.reminders-block h3 {
+    font-family: var(--font-heading);
+    color: white;
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.palette {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.warning {
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.no-bullets {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+}
+
+.no-bullets li {
+    margin-bottom: 5px;
+}
+
+.no-bullets li::before {
+    content: "♡ ";
+    color: white;
+}
+
+.hashtag {
+    color: white;
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.rsvp-footer p {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.big-day-text {
+    color: white;
+    margin-top: 30px;
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a9a6, transparent);
+    margin: 10px 0 40px 0;
+}
+
+/* --- ENTOURAGE PAGE 2 ALIGNMENTS --- */
+
+.center-text {
+    text-align: center;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 15px;
+}
+
+.margin-bottom-large {
+    margin-bottom: 30px;
+}
+
+.margin-top-large {
+    margin-top: 50px;
+}
+
+/* Centers the entire block on the page, but keeps the text inside it aligned to the left */
+.sponsor-block {
+    display: table;
+    margin: 0 auto; 
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Pushes "Mrs. Jennie Mendoza" to align perfectly under the right column of names */
+.right-indent-sponsor {
+    text-align: right;
+}
+
+/* Flexbox to create two perfectly spaced columns for Best Man / Maid of Honor */
+.flex-two-column {
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
+}
+
+.column-center {
+    text-align: center;
+}
