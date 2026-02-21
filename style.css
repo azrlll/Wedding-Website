@@ -343,22 +343,23 @@ section {
 
 /* --- GALLERY SECTION --- */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Keeps 2 per row */
-    gap: 15px;
+    column-count: 2; /* This creates two perfect vertical columns */
+    column-gap: 15px; /* Space between the columns */
     width: 100%;
-    max-width: 800px; /* This makes the overall gallery smaller and less wide */
-    margin: 30px auto 0 auto; /* This centers the smaller grid perfectly */
+    max-width: 800px; 
+    margin: 30px auto 0 auto; 
 }
 
 .g-img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Forces every single image to be the exact same rectangle size */
-    object-fit: cover; /* Crops the images neatly so they fit the box WITHOUT stretching or warping */
+    height: auto; /* Keeps the full image without cropping */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     border: 2px solid var(--accent-color);
     transition: transform 0.3s ease;
+    display: block;
+    margin-bottom: 15px; /* Adds space underneath each image */
+    break-inside: avoid; /* Prevents the browser from accidentally slicing an image in half */
 }
 
 .g-img:hover {
@@ -451,6 +452,12 @@ section {
     margin: 0 auto 15px auto;
 }
 
+.bridesmaid{
+    width: 95px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
 .swatch {
     width: 40px;
     height: 40px;
@@ -509,6 +516,23 @@ section {
     background: linear-gradient(to right, transparent, var(--accent-color), transparent);
     margin: 20px auto 50px auto;
     opacity: 0.6;
+}
+
+/* --- SWATCH TEXT LABELS --- */
+.swatch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Space between the circle and the text */
+}
+
+.swatch-label {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
 
 /* --- ENTOURAGE SECTION STYLES --- */
@@ -784,9 +808,9 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allows you to click through the flowers */
+    pointer-events: none;
     overflow: hidden;
-    z-index: 0;
+    z-index: 5; /* Ensures flowers are behind the modal content but above the background */
 }
 
 .flower-petal {

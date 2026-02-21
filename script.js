@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterBtn = document.getElementById("enter-btn");
     const flowerContainer = document.getElementById("flower-container");
 
-    // Array of emojis to use for the falling effect
-    const flowerTypes = ['🌸', '💮', '🌸']; 
+    // Array of emojis to use for the falling effect (2 flowers, 2 hearts)
+    const flowerTypes = ['🌸', '💮', '❤️', '💕'];
 
     // Generate 35 falling flowers
     for (let i = 0; i < 35; i++) {
@@ -74,14 +74,27 @@ document.addEventListener("DOMContentLoaded", () => {
         flowerContainer.appendChild(flower);
     }
 
+    // Grab the audio element we just created
+    const bgMusic = document.getElementById("bg-music");
+
     // Button click to enter site
     enterBtn.addEventListener("click", () => {
         modal.classList.add("hidden");
         setTimeout(() => modal.style.display = "none", 500); 
+        
+        // Start playing the background music!
+        if (bgMusic) {
+            bgMusic.play().catch(error => {
+                console.log("Browser blocked auto-play", error);
+            });
+        }
     });
-});
+
+}); // <-- This is the missing bracket that fixes the error!
 
 function slideNinong(index) {
     const track = document.getElementById("ninong-track");
-    track.style.transform = `translateX(-${index * 50}%)`;
+    if (track) {
+        track.style.transform = `translateX(-${index * 50}%)`;
+    }
 }
