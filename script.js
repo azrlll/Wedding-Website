@@ -50,3 +50,18 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("welcome-modal");
+    const enterBtn = document.getElementById("enter-btn");
+
+    enterBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+        setTimeout(() => modal.style.display = "none", 500); 
+    });
+});
+
+function slideNinong(index) {
+    const track = document.getElementById("ninong-track");
+    track.style.transform = `translateX(-${index * 50}%)`;
+}

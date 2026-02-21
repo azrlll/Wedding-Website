@@ -1,12 +1,74 @@
 /* --- CSS VARIABLES & RESET --- */
 :root {
-    --primary-color: #FDF5E6; /* Old Lace/Cream - Softer than pure white */
-    --accent-color: #E5C158; /* Elegant Champagne Gold for headings/accents */
+    --primary-color: #FDF5E6; /* Old Lace/Cream */
+    --accent-color: #E5C158; /* Champagne Gold */
     --bg-color: #DCA1A1; /* Light pink background */
     --box-bg-color: #800020; /* Burgundy Box */
-    --text-color: #FFE4E1; /* Misty Rose / Blush Pink text for readability */
+    --text-color: #FFE4E1; /* Misty Rose text */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lato', sans-serif;
+}
+
+/* --- WELCOME MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center; align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.modal-content {
+    background-color: var(--box-bg-color);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px; width: 90%;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.modal-content h2 {    
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 2.5rem;
+}
+
+.ninong-slider-container {
+    width: 100px; 
+    height: 150px;
+    margin: 0 auto 15px auto;
+    overflow: hidden;
+}
+
+.ninong-track {
+    display: flex;
+    width: 200%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.ninong-slide {
+    width: 50%;
+    object-fit: contain;
+}
+
+.modal-content p {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-overlay.hidden .modal-content {
+    transform: scale(0.9);
 }
 
 * {
@@ -17,7 +79,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 80px; 
 }
 
 body {
@@ -31,12 +93,12 @@ body {
 h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: 400;
-    color: var(--accent-color); /* Changed from primary to gold accent */
+    color: var(--accent-color); 
 }
 
 h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     color: var(--primary-color);
 }
@@ -49,11 +111,9 @@ p {
 
 a {
     text-decoration: none;
-    color: var(--box-bg-color);
     transition: 0.3s;
 }
 
-/* Specific text accent color to replace the invisible red text */
 .accent-text {
     color: var(--accent-color);
     font-weight: bold;
@@ -65,15 +125,25 @@ a {
     text-underline-offset: 4px;
 }
 
-/* --- NAVIGATION --- */
+.text-centered {
+    text-align: center;
+}
+
+/* --- NAVIGATION Header --- */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: transparent; 
+    padding: 1.5rem 0; 
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease-in-out;
+}
+
+header.scrolled {
+    background: var(--box-bg-color); 
+    padding: 0.5rem 0; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 nav {
@@ -81,32 +151,36 @@ nav {
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between; 
     padding: 0 2rem;
-    height: 70px;
-    position: relative;
+    height: 60px;
 }
 
 .logo {
-    position: absolute;
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%); 
-    width: 140px; 
-    z-index: 1002; 
+    width: 150px; 
+    transition: all 0.3s ease;
+}
+header.scrolled .logo {
+    width: 130px; 
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
-    margin-left: auto;
+    gap: 2.5rem;
 }
 
 .nav-links li a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.6); 
+}
+
+header.scrolled .nav-links li a {
+    text-shadow: none; 
 }
 
 .nav-links li a:hover {
@@ -116,14 +190,14 @@ nav {
 .hamburger {
     display: none;
     cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--box-bg-color);
+    font-size: 1.8rem;
+    color: var(--primary-color);
 }
 
 /* --- HERO SECTION --- */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(images/backgroundHero.png);
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/backgroundHero.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -140,39 +214,41 @@ nav {
     font-size: 5rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .hero p {
     font-size: 1.3rem;
     color: var(--primary-color);
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
 .scroll-down {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     animation: bounce 2s infinite;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--accent-color);
     cursor: pointer;
 }
 
-/* --- SECTIONS --- */
+/* --- SECTIONS GENERAL --- */
 section {
-    padding: 20px;
-    max-width: 1000px;
+    padding: 40px 20px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .content-box, .rsvp-box {
     background: var(--box-bg-color);
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    padding: 4rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* --- COUNTDOWN --- */
@@ -186,8 +262,8 @@ section {
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 3rem;
+    margin-top: 3rem;
     flex-wrap: wrap;
 }
 
@@ -198,243 +274,148 @@ section {
 }
 
 .time-val {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: var(--font-heading);
     color: var(--accent-color);
+    line-height: 1;
 }
 
 .time-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: var(--primary-color);
+    margin-top: 10px;
 }
 
-/* --- SCHEDULE --- */
+/* --- DETAILS SECTION --- */
 .schedule-item {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 3rem;
     padding-bottom: 2rem;
-}
-
-.schedule-item:last-child {
-    border-bottom: none;
 }
 
 .schedule-time {
     font-weight: bold;
     color: var(--accent-color);
     display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.location-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.qrcode {
+    width: 180px;
+    height: 180px;
+    border: 5px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.location-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.address-text-new {
+    text-align: center;
+    font-size: 1.05rem;
+    margin-bottom: 0;
 }
 
 .bible-verse {
     font-style: italic;
     color: var(--accent-color);
-    margin-top: 20px;
+    margin-top: 25px;
+    font-size: 1.2rem;
 }
 
-.entourage-list {
-    list-style-type: none;
-    margin: 20px 0;
+/* --- GALLERY SECTION --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Keeps 2 per row */
+    gap: 15px;
+    width: 100%;
+    max-width: 800px; /* This makes the overall gallery smaller and less wide */
+    margin: 30px auto 0 auto; /* This centers the smaller grid perfectly */
 }
 
-.entourage-list li {
-    padding: 5px;
-    color: var(--primary-color);
+.g-img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Forces every single image to be the exact same rectangle size */
+    object-fit: cover; /* Crops the images neatly so they fit the box WITHOUT stretching or warping */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 2px solid var(--accent-color);
+    transition: transform 0.3s ease;
 }
 
-.entourage-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.entourage-left,
-.entourage-right {
-    flex: 1;
-    min-width: 250px;
-}
-
-.address-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.address-container p{
-    text-align: right;
-}
-
-.qrcode{
-    width: 150px; 
-    height: 150px; 
-    border: 5px solid white; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px;
-    flex-shrink: 0;
+.g-img:hover {
+    transform: scale(1.02);
 }
 
 /* --- FINER DETAILS --- */
 .finer-details {
     text-align: center;
     padding: 2rem 0;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .section-title {
     color: var(--accent-color);
     font-size: 2rem;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
 }
 
-.detail-block, 
-.reminders-block {
-    margin-bottom: 35px;
-}
-
-.detail-block h3, 
-.reminders-block h3 {
-    color: var(--accent-color);
-    font-weight: 800;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.palette {
-    color: var(--accent-color);
-    font-weight: bold;
-    font-style: italic;
-    margin-top: 5px;
-}
-
-.warning {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-top: 5px;
-    text-decoration: underline;
-}
-
-.no-bullets {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
-    text-align: left;
-}
-
-.no-bullets li {
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.no-bullets li::before {
-    content: "♡ ";
-    color: var(--accent-color);
-}
-
-.hashtag {
-    color: var(--accent-color);
-    font-size: 1.4rem;
-    font-family: var(--font-heading);
-    font-style: italic;
-    margin-top: 10px;
-}
-
-.rsvp-footer {
-    color: var(--primary-color);
-    font-style: italic;
-    margin-top: 20px;
-}
-
-.big-day-text {
-    color: var(--accent-color);
-    margin-top: 20px;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-}
-
-.rsvp-btn{
-    display: inline-block; 
-    background: var(--accent-color);
-    color: var(--box-bg-color);
-    padding: 10px 20px; 
-    border-radius: 4px; 
-    margin-top: 10px; 
-    font-weight: bold;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.rsvp-btn:hover{
-    transform: scale(1.1);
-    background: var(--primary-color);
-}
-
-
-.section-divider {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-    margin: 10px 0 40px 0;
-}
-
-/* --- ENTOURAGE PAGE 2 ALIGNMENTS --- */
-
-.page-header {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.center-text {
-    text-align: center;
-    color: var(--primary-color);
-}
-
-.margin-bottom-medium {
-    margin-bottom: 15px;
-}
-
-.margin-bottom-large {
-    margin-bottom: 30px;
-}
-
-.margin-top-large {
-    margin-top: 50px;
-}
-
-.sponsor-block {
-    display: table;
-    margin: 0 auto; 
-    text-align: left;
-    line-height: 1.8;
-    color: var(--primary-color);
-}
-
-.right-indent-sponsor {
-    text-align: right;
-}
-
-.flex-two-column {
+/* --- REMINDERS GRID --- */
+.reminders-grid {
     display: flex;
-    justify-content: space-around; 
-    width: 100%;
+    justify-content: center;
+    align-items: flex-end; 
+    gap: 40px; 
+    margin-top: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; 
 }
 
-.column-center {
-    text-align: center;
+.reminder-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+}
+
+.reminder-icon {
+    width: 120px; /* Set a default width for your placeholder pictures */
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px; /* Space between the picture and the text */
+}
+
+.reminder-item p {
     color: var(--primary-color);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 0;
 }
 
-* --- DRESS CODE VISUALS --- */
+/* --- DRESS CODE VISUALS --- */
 .dress-code-visual {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 20px;
     margin-top: 15px;
     flex-wrap: wrap;
@@ -453,6 +434,18 @@ section {
     justify-content: center;
     gap: 10px;
     margin-bottom: 15px;
+}
+
+.ninong{
+    width: 100px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.ninang{
+    width: 145px;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
 .swatch {
@@ -476,13 +469,178 @@ section {
     margin-bottom: 0;
 }
 
+.detail-block h3, 
+.reminders-block h3 {
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.no-bullets {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    text-align: center; 
+}
+
+.no-bullets li {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.hashtag {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    margin: 20px auto 50px auto;
+    opacity: 0.6;
+}
+
+/* --- ENTOURAGE SECTION STYLES --- */
+
+.page-header {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+}
+
+.center-text {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.margin-bottom-medium { margin-bottom: 20px; }
+.margin-bottom-large { margin-bottom: 40px; }
+
+/* SPONSOR GRID (Mr. and Mrs. Alignment) */
+.sponsor-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+.s-row {
+    display: grid;
+    grid-template-columns: 1fr 30px 1fr;
+    align-items: center;
+}
+.s-m { text-align: right; }
+.s-sep { text-align: center; }
+.s-w { text-align: left; }
+
+.flex-two-column {
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column-center {
+    text-align: center;
+    color: var(--primary-color);
+    flex: 1;
+}
+
+.entourage-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+    margin-top: 40px;
+}
+
+.entourage-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.entourage-column {
+    flex: 1; 
+}
+
+.left-align { text-align: right; padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.2);}
+.right-align { text-align: left; padding-left: 20px; }
+
+.entourage-list {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.entourage-list li {
+    padding: 6px 0;
+    color: var(--primary-color);
+    font-size: 1.05rem;
+}
+
+/* --- RSVP FOOTER --- */
+.rsvp-footer {
+    color: var(--primary-color);
+    font-style: italic;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+.big-day-text {
+    color: var(--accent-color);
+    margin-top: 25px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+
+.address-image {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 300px;
+    max-width: 350px; 
+    border-radius: 8px; 
+    border: 3px solid var(--accent-color); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.rsvp-btn {
+    display: inline-block; 
+    background: var(--accent-color);
+    color: var(--box-bg-color);
+    padding: 15px 35px; 
+    border-radius: 4px; 
+    margin-top: 20px; 
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.rsvp-btn:hover {
+    transform: scale(1.05);
+    background: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
 /* --- FOOTER --- */
 footer {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
-    margin-top: 3rem;
+    padding: 3rem 1rem;
+    margin-top: 5rem;
 }
 
 footer p {
@@ -493,19 +651,29 @@ footer p {
 
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
+    
+    header { padding: 1rem 0; }
+    .logo { left: 1.5rem; width: 120px; }
+    
     .nav-links {
-        position: absolute;
+        position: fixed;
         right: 0px;
         height: 100vh;
         top: 0px;
-        background-color: white;
+        background-color: var(--box-bg-color);
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 60%;
+        width: 70%;
         transform: translateX(100%);
-        transition: transform 0.3s ease-in;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        z-index: 999; 
+    }
+
+    .nav-links li a {
+        text-shadow: none;
+        font-size: 1.2rem;
     }
 
     .nav-links.active {
@@ -514,56 +682,94 @@ footer p {
 
     .hamburger {
         display: block;
+        position: absolute;
+        right: 1.5rem;
         z-index: 1001;
     }
 
-    .hero h1 {
-        font-size: 3.5rem;
-    }
+    .hero h1 { font-size: 3.5rem; }
+    .hero p { font-size: 1rem; }
 
-    .address-container{
+    .content-box, .rsvp-box { padding: 3rem 1.5rem; }
+    
+    .location-block {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stacks the image, text, and QR code vertically */
+    align-items: center;    /* Centers them neatly */
     justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 20px 0;
-    }
+    text-align: center;     /* Centers the actual text lines */
+    gap: 25px;              /* Adds a nice breathing room between them */
+    margin-top: 30px;
+}
 
-    .address-container p{
+    .s-row { 
+        grid-template-columns: 1fr;
         text-align: center;
-        font-size: 14px;
+        gap: 5px;
+        margin-bottom: 15px;
     }
+    .s-m, .s-w { text-align: center; }
+    .s-sep { display: none; } /* Hide the dash on mobile so names just stack cleanly */
 
-     .qrcode-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .entourage-row { flex-direction: column; gap: 20px; }
+    .left-align, .right-align { 
+        text-align: center; 
+        padding: 0; 
+        border: none;
     }
+    
+    #countdown { gap: 1.5rem; }
+    .time-val { font-size: 2.5rem; }
 
-    .qrcode-container p{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .qrcode{
-        width: 150px; 
-        height: 150px; 
-        border: 5px solid white; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px;
-        flex-shrink: 0;
-    }
-
-    .rsvp-box p{
-        font-size: 15px;
-    }
 }
 
 /* --- ANIMATIONS --- */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+    40% {transform: translateY(-15px);}
+    60% {transform: translateY(-8px);}
+}
+
+#lovestory {
+    /* Centers the .content-box within the section */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 4rem 2rem; /* Adds some breathing room around the section */
+}
+
+.love-story-image {
+    max-width: 100%; /* Makes sure the image is responsive */
+    height: auto;
+    margin-bottom: 1.5rem; /* Adds space between the image and the heading */
+    border-radius: 10px; /* Optional: adds a nice soft edge to the image */
+}
+
+.love-story-image2 {
+    width: 100%; /* Tells the image to fill the available space */
+    max-width: 600px; /* Increase this number to make it bigger (e.g., 800px, 1000px) */
+    height: auto; /* Keeps the image proportions correct so it doesn't stretch */
+    margin: 0 auto; /* Centers the image horizontally if its container is larger */
+}
+
+.love-story-dates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Adjust space between dates */
+    margin: 25px 0 15px 0; /* Space above and below the timeline */
+}
+
+.ls-date {
+    color: var(--primary-color); /* Cream color for past dates */
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ls-separator {
+    color: var(--accent-color); /* Gold color for the dots */
+    font-size: 1.5rem;
+    line-height: 0; /* Keeps the dots centered vertically */
 }
