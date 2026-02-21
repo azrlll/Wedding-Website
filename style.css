@@ -3,7 +3,7 @@
     --primary-color: #FDF5E6; /* Old Lace/Cream */
     --accent-color: #E5C158; /* Champagne Gold */
     --bg-color: #DCA1A1; /* Light pink background */
-    --box-bg-color: #800020; /* Burgundy Box */
+    --box-bg-color: #5b041a; /* Burgundy Box */
     --text-color: #FFE4E1; /* Misty Rose text */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lato', sans-serif;
@@ -307,7 +307,6 @@ section {
     justify-content: center;
     align-items: center;
     text-align: left;
-    margin-top: 20px;
 }
 
 .qrcode {
