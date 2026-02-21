@@ -54,7 +54,27 @@ window.addEventListener('scroll', () => {
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("welcome-modal");
     const enterBtn = document.getElementById("enter-btn");
+    const flowerContainer = document.getElementById("flower-container");
 
+    // Array of emojis to use for the falling effect
+    const flowerTypes = ['🌸', '💮', '🌸']; 
+
+    // Generate 35 falling flowers
+    for (let i = 0; i < 35; i++) {
+        const flower = document.createElement('div');
+        flower.classList.add('flower-petal');
+        flower.innerText = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+        
+        // Randomize the position, size, and fall speed of each flower
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+        flower.style.animationDuration = (Math.random() * 4 + 3) + 's'; // Falls between 3s and 7s
+        flower.style.animationDelay = Math.random() * 5 + 's';
+        
+        flowerContainer.appendChild(flower);
+    }
+
+    // Button click to enter site
     enterBtn.addEventListener("click", () => {
         modal.classList.add("hidden");
         setTimeout(() => modal.style.display = "none", 500); 
