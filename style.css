@@ -134,7 +134,7 @@ a {
 }
 
 /* --- HEART ENTER BUTTON --- */
-#enter-btn {
+#enter-button {
     position: relative;
     background: none;
     border: none;
@@ -150,8 +150,8 @@ a {
 }
 
 /* Creates the two halves of the red heart */
-#enter-btn::before,
-#enter-btn::after {
+#enter-button::before,
+#enter-button::after {
     content: "";
     position: absolute;
     background-color: #CC0000; /* Deep Red */
@@ -162,20 +162,20 @@ a {
     z-index: 0;
 }
 
-#enter-btn::before {
+#enter-button::before {
     left: 50px;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
 }
 
-#enter-btn::after {
+#enter-button::after {
     left: 0;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
 }
 
 /* Styles and centers the text over the heart */
-#enter-btn span {
+#enter-button span {
     position: relative;
     z-index: 10; 
     color: #FFFFFF; /* White text for better readability */
@@ -339,7 +339,7 @@ section {
     align-items: center;
 }
 
-.time-val {
+.time-value {
     font-size: 3rem;
     font-family: var(--font-heading);
     color: var(--accent-color);
@@ -412,7 +412,7 @@ section {
     margin: 30px auto 0 auto; 
 }
 
-.g-img {
+.gallery-image {
     width: 100%;
     height: auto; /* Keeps the full image without cropping */
     border-radius: 8px;
@@ -422,10 +422,6 @@ section {
     display: block;
     margin-bottom: 15px; /* Adds space underneath each image */
     break-inside: avoid; /* Prevents the browser from accidentally slicing an image in half */
-}
-
-.g-img:hover {
-    transform: scale(1.02);
 }
 
 /* --- FINER DETAILS --- */
@@ -622,14 +618,14 @@ section {
     color: var(--primary-color);
     font-size: 1.1rem;
 }
-.s-row {
+.sponsor-row {
     display: grid;
     grid-template-columns: 1fr 30px 1fr;
     align-items: center;
 }
-.s-m { text-align: right; }
-.s-sep { text-align: center; }
-.s-w { text-align: left; }
+.sponsor-man { text-align: right; }
+.sponsor-separator { text-align: center; }
+.sponsor-woman { text-align: left; }
 
 .flex-two-column {
     display: flex;
@@ -703,7 +699,7 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.rsvp-btn {
+.rsvp-button {
     display: inline-block; 
     background: var(--accent-color);
     color: var(--box-bg-color);
@@ -717,7 +713,7 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.rsvp-btn:hover {
+.rsvp-button:hover {
     transform: scale(1.05);
     background: var(--primary-color);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -791,14 +787,14 @@ footer p {
     margin-top: 30px;
 }
 
-    .s-row { 
+    .sponsor-row { 
         grid-template-columns: 1fr;
         text-align: center;
         gap: 5px;
         margin-bottom: 15px;
     }
-    .s-m, .s-w { text-align: center; }
-    .s-sep { display: none; } /* Hide the dash on mobile so names just stack cleanly */
+    .sponsor-man, .sponsor-woman { text-align: center; }
+    .sponsor-separator { display: none; } /* Hide the dash on mobile so names just stack cleanly */
 
     .entourage-row { flex-direction: column; gap: 20px; }
     .left-align, .right-align { 
@@ -808,7 +804,7 @@ footer p {
     }
     
     #countdown { gap: 1.5rem; }
-    .time-val { font-size: 2.5rem; }
+    .time-value { font-size: 2.5rem; }
 
 }
 
@@ -849,7 +845,7 @@ footer p {
     margin: 25px 0 15px 0; /* Space above and below the timeline */
 }
 
-.ls-date {
+.love-story-date {
     color: var(--primary-color); /* Cream color for past dates */
     font-weight: 700;
     font-size: 1rem;
@@ -857,7 +853,7 @@ footer p {
     text-transform: uppercase;
 }
 
-.ls-separator {
+.love-story-separator {
     color: var(--accent-color); /* Gold color for the dots */
     font-size: 1.5rem;
     line-height: 0; /* Keeps the dots centered vertically */
