@@ -133,6 +133,67 @@ a {
     text-align: center;
 }
 
+/* --- HEART ENTER BUTTON --- */
+#enter-btn {
+    position: relative;
+    background: none;
+    border: none;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+/* Creates the two halves of the red heart */
+#enter-btn::before,
+#enter-btn::after {
+    content: "";
+    position: absolute;
+    background-color: #CC0000; /* Deep Red */
+    width: 50px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    top: 0;
+    z-index: 0;
+}
+
+#enter-btn::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+#enter-btn::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Styles and centers the text over the heart */
+#enter-btn span {
+    position: relative;
+    z-index: 10; 
+    color: #FFFFFF; /* White text for better readability */
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    transform: translateY(-16px); /* Pushes the text higher into the heart */
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+}
+
 /* --- NAVIGATION Header --- */
 header {
     position: fixed;
@@ -161,11 +222,12 @@ nav {
 }
 
 .logo {
-    width: 150px; 
+    width: 90px;
     transition: all 0.3s ease;
 }
+
 header.scrolled .logo {
-    width: 130px; 
+    width: 65px;
 }
 
 .nav-links {
@@ -680,7 +742,7 @@ footer p {
 @media (max-width: 768px) {
     
     header { padding: 1rem 0; }
-    .logo { left: 1.5rem; width: 120px; }
+    .logo { left: 1.5rem; width: 80px; }
     
     .nav-links {
         position: fixed;
