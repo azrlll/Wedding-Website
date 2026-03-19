@@ -15,6 +15,7 @@ document.querySelectorAll('.nav-links li a').forEach(link => {
 
 // --- COUNTDOWN TIMER ---
 // S    
+// Set the date we're counting down to
 const weddingDate = new Date("July 12, 2026 15:00:00").getTime();
 
 const countdownTimer = setInterval(function() {
