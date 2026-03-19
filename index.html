@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanz & Jane | Our Wedding</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="welcome-modal" class="modal-overlay">
+        <div id="flower-container"></div> 
+        
+        <div class="modal-content">
+            <h2>Welcome to Hanz and Jane's Wedding</h2>
+            <p>We are thrilled to have you here!</p>
+            <button id="enter-button">
+                <span>Enter</span>
+            </button>
+        </div>
+    </div>
+
+    <header id="header">
+        <nav>
+            <img class="logo" src="images/logo.png" alt="Hanz & Jane Logo">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#lovestory">Love Story</a></li>
+                <li><a href="#details">Venue</a></li>
+                <li><a href="#entourage">Entourage</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#finer-details">Finer Details</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+            </ul>
+            <div class="hamburger">
+                ☰
+            </div>
+        </nav>
+    </header>
+    
+    <div class="hero" id="home">
+        <p>With Love as our foundation and faith in our hearts we</p>
+        <h1>Hanz & Jane</h1>
+        <p>Joyfully invite you to celebrate the beginning of our marriage<br>as we promise to journey through life together, hand in hand</p>
+        <div class="scroll-down" onclick="document.getElementById('story').scrollIntoView()">
+            ↓
+        </div>
+    </div>
+
+    <section id="story">
+        <div class="content-box">
+            <p class="big-date">Sunday, July 12, 2026 3:00 PM</p>
+            <div id="countdown"></div>
+        </div>
+    </section>
+
+    <section id="lovestory">
+        <div class="content-box">
+            <img src="images/our_love_story2.jpg" alt="Our Love Story" class="love-story-image">
+            <h2 class="underline-text">Our Love Story</h2>
+            <img src="images/our_love_story.png" alt="Our Love Story 2" class="love-story-image2">
+            
+            <div class="love-story-dates">
+                <span class="love-story-date">02.14.2021</span>
+                <span class="love-story-separator">•</span>
+                <span class="love-story-date">07.20.2022</span>
+                <span class="love-story-separator">•</span>
+                <span class="love-story-date accent-text">07.12.2026</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="details">
+        <div class="content-box">
+            <h2 class="underline-text">The Ceremony and Reception</h2>
+            <div class="schedule-item">
+                <span class="schedule-time">Sunday, July 12, 2026 @ 3:00 PM</span>
+                <p>Stalla Suites Event Place<br>Quezon City</p>
+
+                <div class="location-block">
+                    <img class="address-image" src="images/venue.png" alt="Picture of the venue">
+                    
+                    <div class="location-details">
+                        <a target="_blank" href="https://maps.app.goo.gl/9XJH4FqZVGPCvBEh8">
+                            <img class="qrcode" src="images/qrcode_map.jpeg" alt="Map QR Code">
+                        </a>
+                        <p class="address-text-new">
+                            Address: 1008 Quezon City Ave. Paligsahan,<br>
+                            Diliman, Quezon City, 1003 Metro Manila<br>
+                            (beside Classique Bar & Spa front of Fishermall)
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="bible-verse" style="text-align: center; margin-top: 30px;">
+                    "What God has joined together, let no one separate"<br>
+                    Mark 10:9
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="entourage">
+        <div class="content-box">
+            <p class="page-header">
+                <span class="accent-text underline-text">THE ENTOURAGE</span>
+            </p>
+
+            <div class="center-text margin-bottom-large">
+                Chandler – Berango<br>
+                Nuptial
+            </div>
+
+            <div class="center-text margin-bottom-large">
+                Influcella A. Berango (Mother)<br>
+                Roland Berango (Brother)
+            </div>
+
+            <div class="text-centered accent-text margin-bottom-medium">
+                Principal Sponsors
+            </div>
+
+            <div class="sponsor-grid">
+                <div class="sponsor-row"><div class="sponsor-man">Mr. Lerio Alvarez</div><div class="sponsor-separator">–</div><div class="sponsor-woman">Mrs. Felipa Alvarez</div></div>
+                <div class="sponsor-row"><div class="sponsor-man">Mr. Edgar Benitez</div><div class="sponsor-separator">–</div><div class="sponsor-woman">Mrs. Leonora Benitez</div></div>
+                <div class="sponsor-row"><div class="sponsor-man">Mr. Henry Alvarez</div><div class="sponsor-separator">–</div><div class="sponsor-woman">Mrs. Eloisa Alvarez</div></div>
+                <div class="sponsor-row"><div class="sponsor-man">Mr. Rene Lorico</div><div class="sponsor-separator">–</div><div class="sponsor-woman">Mrs. Adela Lagat</div></div>
+                <div class="sponsor-row"><div class="sponsor-man">Mr. Stephen Gregory</div><div class="sponsor-separator">–</div><div class="sponsor-woman">Mrs. Imelda Harmon</div></div>
+                <div class="sponsor-row"><div class="sponsor-man"></div><div class="sponsor-separator"></div><div class="sponsor-woman">Mrs. Jeannie Esguerra</div></div>
+            </div>
+
+            <hr class="section-divider" style="width: 50%; margin: 30px auto;">
+
+            <div class="flex-two-column margin-bottom-large">
+                <div class="column-center"> 
+                    <div class="accent-text">Best Man</div>
+                    Ralph Chandler
+                </div>
+                <div class="column-center">
+                    <div class="accent-text">Maid of Honor</div>
+                    Jennina Chandler
+                </div>
+            </div>
+
+            <div class="entourage-grid-container">
+                <div class="entourage-row">
+                    <div class="entourage-column left-align">
+                        <h3>Groomsmen</h3>
+                        <ol class="entourage-list">
+                            <li>Kimpee Sta. Rufina</li>
+                            <li>Giovanni Mendoza</li>
+                            <li>Jeffril Alegre</li>
+                            <li>Angelo Turqueza</li>
+                            <li>Silverio Kilitan</li>
+                            <li>Karl Christian Real</li>
+                        </ol> 
+                    </div>
+                    <div class="entourage-column right-align">
+                        <h3>Bridesmaids</h3>
+                        <ol class="entourage-list">
+                            <li>Ma. Shaina Uy</li>
+                            <li>Queenie May Uy</li>
+                            <li>Wilyn Sual</li>
+                            <li>Gessa Dillomas</li>
+                            <li>Janine Retoma</li>
+                            <li>Debbie Alvarez</li>
+                        </ol> 
+                    </div>
+                </div>
+
+                <div class="entourage-row">
+                    <div class="entourage-column left-align">
+                        <h3>Ring Bearer</h3>
+                        <ol class="entourage-list">
+                            <li>Jun Mar Caoile</li>
+                        </ol> 
+                    </div>
+                    <div class="entourage-column right-align">
+                        <h3>Flower Girls</h3>
+                        <ol class="entourage-list">
+                            <li>Zia Navine Montales</li>
+                            <li>Keisha Sta. Rufina</li>
+                        </ol> 
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="content-box">
+            <h2 class="underline-text">Our Gallery</h2>
+            
+            <div class="gallery-grid">
+                <img src="images/our_gallery1.jpg" alt="Gallery 1" class="gallery-image">
+                <img src="images/our_gallery2.jpg" alt="Gallery 2" class="gallery-image">
+                <img src="images/our_gallery3.jpg" alt="Gallery 3" class="gallery-image">
+                <img src="images/our_gallery4.jpg" alt="Gallery 4" class="gallery-image">
+                <img src="images/our_gallery5.jpg" alt="Gallery 5" class="gallery-image">
+                <img src="images/our_gallery6.jpg" alt="Gallery 6" class="gallery-image">
+                <img src="images/our_gallery7.jpg" alt="Gallery 7" class="gallery-image">
+                <img src="images/our_gallery8.jpg" alt="Gallery 8" class="gallery-image">
+                <img src="images/our_gallery9.jpg" alt="Gallery 9" class="gallery-image">
+                <img src="images/our_gallery10.jpg" alt="Gallery 10" class="gallery-image">
+                <img src="images/our_gallery11.jpg" alt="Gallery 11" class="gallery-image">
+                <img src="images/our_gallery12.jpg" alt="Gallery 12" class="gallery-image">
+                <img src="images/our_gallery13.jpg" alt="Gallery 13" class="gallery-image">
+                <img src="images/our_gallery14.jpg" alt="Gallery 14" class="gallery-image">
+                <img src="images/our_gallery15.jpg" alt="Gallery 15" class="gallery-image">
+                <img src="images/our_gallery16.jpg" alt="Gallery 16" class="gallery-image">
+                <img src="images/our_gallery17.jpg" alt="Gallery 17" class="gallery-image">
+                <img src="images/our_gallery18.jpg" alt="Gallery 18" class="gallery-image">
+                <img src="images/our_gallery19.jpg" alt="Gallery 18" class="gallery-image">
+                <img src="images/our_gallery20.jpg" alt="Gallery 20" class="gallery-image">
+                <img src="images/our_gallery21.jpg" alt="Gallery 21" class="gallery-image">
+                <img src="images/our_gallery22.jpg" alt="Gallery 22" class="gallery-image">
+                <img src="images/our_gallery23.jpg" alt="Gallery 23" class="gallery-image">
+                <img src="" alt="Gallery 24" class="gallery-image">
+                <img src="images/our_gallery25.jpg" alt="Gallery 25" class="gallery-image">
+                <img src="images/our_gallery26.jpg" alt="Gallery 26" class="gallery-image">
+                <img src="images/our_gallery27.jpg" alt="Gallery 27" class="gallery-image">
+                <img src="images/our_gallery28.jpg" alt="Gallery 28" class="gallery-image">
+                <img src="images/our_gallery29.jpg" alt="Gallery 29" class="gallery-image">
+                <img src="images/our_gallery30.jpg" alt="Gallery 30" class="gallery-image">
+                <img src="images/our_gallery31.jpg" alt="Gallery 31" class="gallery-image">
+                <img src="images/our_gallery32.jpg" alt="Gallery 32" class="gallery-image">
+                <img src="images/our_gallery33.jpg" alt="Gallery 33" class="gallery-image">
+                <img src="images/our_gallery34.jpg" alt="Gallery 34" class="gallery-image">
+                <img src="images/our_gallery35.jpg" alt="Gallery 35" class="gallery-image">
+                <img src="images/our_gallery36.jpg" alt="Gallery 36" class="gallery-image">
+                <img src="images/our_gallery37.jpg" alt="Gallery 37" class="gallery-image">
+                <img src="images/our_gallery38.jpg" alt="Gallery 38" class="gallery-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="finer-details">
+        <div class="content-box finer-details" style="margin-top: 0; padding-top: 2rem;">
+            <h2 class="underline-text">Finer Details</h2>
+            
+            <div class="detail-block text-centered">
+                <h3>ATTIRE GUIDE (For Guests)</h3>
+                <p>We would love to see you in your best and comfortable Semi-Formal / Formal attire.<br>
+                    We encourage you to dress according to our wedding theme:</p>
+            
+    
+    <div class="dress-code-visual">
+        <div class="dress-card" style="width: 100%; max-width: 420px;">
+            <div class="color-swatches" style="gap: 15px; flex-wrap: wrap;">
+                
+                <div class="swatch-item">
+                    <div class="swatch" style="background-color: #C8A2C8;" title="Lilac"></div>
+                    <span class="swatch-label">Lilac</span>
+                </div>
+                
+                <div class="swatch-item">
+                    <div class="swatch" style="background-color: #F4C2C2;" title="Pink Blush"></div>
+                    <span class="swatch-label">Blush</span>
+                </div>
+                
+                <div class="swatch-item">
+                    <div class="swatch" style="background-color: #8EADC1;" title="Dusty Blue"></div>
+                    <span class="swatch-label">Dusty Blue</span>
+                </div>
+                
+                <div class="swatch-item">
+                    <div class="swatch" style="background-color: #9CAF88;" title="Sage Green"></div>
+                    <span class="swatch-label">Sage Green</span>
+                </div>
+                
+                <div class="swatch-item">
+                    <div class="swatch" style="background-color: #FBCEB1;" title="Apricot"></div>
+                    <span class="swatch-label">Apricot</span>
+                </div>
+
+                </div>
+                <h4>Guest Palette</h4>
+                <p class="warning" style="text-decoration: none;">Please don't wear White.</p>
+            </div>
+        </div>
+    </div>
+
+            <div class="detail-block">
+                <h3>PRINCIPAL SPONSOR</h3>
+                <div class="dress-code-visual">
+                    
+                    <div class="dress-card">
+                        <img class="ninong" src="images/ninong.png" alt="Ninong">
+                        <div class="color-swatches" style="gap: 15px;">
+                            <div class="swatch-item">
+                                <div class="swatch" style="background-color: #E8DCC4;" title="Beige"></div>
+                                <span class="swatch-label">Beige</span>
+                            </div>
+                            <div class="swatch-item">
+                                <div class="swatch" style="background-color: #222222;" title="Black"></div>
+                                <span class="swatch-label">Black</span>
+                            </div>
+                        </div>
+                        <h4>Ninong</h4>
+                        <p>Beige Barong<br>& Black Slacks</p>
+                    </div>
+
+                    <div class="dress-card">
+                        <img class="ninang" src="images/ninang.png" alt="Ninang">
+                        <div class="color-swatches" style="gap: 15px;">
+                            <div class="swatch-item">
+                                <div class="swatch" style="background-color: #DCAE96;" title="Dusty Rose"></div>
+                                <span class="swatch-label">Dusty Rose</span>
+                            </div>
+                        </div>
+                        <h4>Ninang</h4>
+                        <p>Dusty Rose Gown<br>or Long Dress</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h3>GROOMSMEN & BRIDESMAID</h3>
+                <div class="dress-code-visual">
+                    
+                    <div class="dress-card">
+                        <img class="ninong" src="images/groomsmen.png" alt="Groomsmen">
+                        <div class="color-swatches" style="gap: 15px;">
+                            <div class="swatch-item">
+                                <div class="swatch" style="background-color: #1B263B;" title="Navy Blue"></div>
+                                <span class="swatch-label">Navy Blue</span>
+                            </div>
+                            <div class="swatch-item">
+                                <div class="swatch" style="background-color: #5b041a;" title="Burgundy"></div>
+                                <span class="swatch-label">Burgundy</span>
+                            </div>
+                        </div>
+                        <h4>Groomsmen</h4>
+                        <p>Vest & Pants Navy Blue with Burgundy Necktie<br></p>
+                    </div>
+
+                    <div class="dress-card">
+                        <img class="bridesmaid" src="images/bridesmaid.png" alt="Bridesmaid">
+                        <div class="color-swatches" style="gap: 15px;">
+                            <div class="swatch-item">
+                                <div class="swatch" style="background-color: #5b041a;" title="Burgundy"></div>
+                                <span class="swatch-label">Burgundy</span>
+                            </div>
+                        </div>
+                        <h4>Bridesmaid</h4>
+                        <p>Burgundy Dress<br></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="detail-block text-centered" style="margin-top: 40px;">
+                <h3>GIFT GUIDE</h3>
+                <p>The most important gift to us is having you share our special day.</p>
+            </div>
+
+            <div class="detail-block text-centered">
+                <h3>PRIVATE NOTE</h3>
+                <p>We truly appreciate the genuine happiness felt on this celebration with you.<br>Please silent / turn off your cellphone until after ceremony.</p>
+            </div>
+
+            <div class="reminders-block text-centered">
+                <h3>REMINDERS</h3>
+                
+                <div class="reminders-grid">
+                    <div class="reminder-item">
+                        <img src="images/reminder1.png" alt="Be on time" class="reminder-icon">
+                        <p>BE ON TIME</p>
+                    </div>
+                    
+                    <div class="reminder-item">
+                        <img src="images/reminder2.png" alt="Finish the event" class="reminder-icon">
+                        <p>ENJOY & HAVE FUN</p>
+                    </div>
+                    
+                    <div class="reminder-item">
+                        <img src="images/reminder3.png" alt="Have fun" class="reminder-icon">
+                        <p>FINISH THE EVENT</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-block text-centered">
+                <h3>SNAP & SHARE</h3>
+                <p>Help us document our special day by sharing our captured moments using our official Hashtag:</p>
+                <p class="hashtag">#HanzJaneofficiallymarried</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp">
+        <div class="rsvp-box">
+            <h2 class="accent-text underline-text">RSVP</h2>
+            <p>We have reserved seats for you. Hope to see you on our wedding day. Kindly confirm on or before June 30, 2026 by replying to our website (No RSVP, No SEAT).</p>
+            <p class="rsvp-footer">Our hearts are full, and can't wait to share this joy with the people who matter most.</p>
+            <h3 class="big-day-text">SEE YOU ON OUR BIG DAY !!</h3>
+            <a target="_blank" href="https://hanz-and-jane.fillout.com/confirm" class="rsvp-button">Click to CONFIRM</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with love for Hanz & Jane © 2026</p>
+    </footer>
+
+    <audio id="background-music" loop>
+        <source src="music/wedding_song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
