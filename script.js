@@ -14,10 +14,11 @@ document.querySelectorAll('.nav-links li a').forEach(link => {
 });
 
 // --- COUNTDOWN TIMER ---
+// S    
 // Set the date we're counting down to
 const weddingDate = new Date("July 12, 2026 15:00:00").getTime();
 
-const countdownFunc = setInterval(function() {
+const countdownTimer = setInterval(function() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
@@ -27,14 +28,14 @@ const countdownFunc = setInterval(function() {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("countdown").innerHTML = `
-        <div class="time-box"><span class="time-val">${days}</span><span class="time-label">Days</span></div>
-        <div class="time-box"><span class="time-val">${hours}</span><span class="time-label">Hours</span></div>
-        <div class="time-box"><span class="time-val">${minutes}</span><span class="time-label">Mins</span></div>
-        <div class="time-box"><span class="time-val">${seconds}</span><span class="time-label">Secs</span></div>
+        <div class="time-box"><span class="time-value">${days}</span><span class="time-label">Days</span></div>
+        <div class="time-box"><span class="time-value">${hours}</span><span class="time-label">Hours</span></div>
+        <div class="time-box"><span class="time-value">${minutes}</span><span class="time-label">Mins</span></div>
+        <div class="time-box"><span class="time-value">${seconds}</span><span class="time-label">Secs</span></div>
     `;
 
     if (distance < 0) {
-        clearInterval(countdownFunc);
+        clearInterval(countdownTimer);
         document.getElementById("countdown").innerHTML = "HAPPILY MARRIED!";
     }
 }, 1000);
@@ -53,7 +54,7 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("welcome-modal");
-    const enterBtn = document.getElementById("enter-btn");
+    const enterButton = document.getElementById("enter-button");
     const flowerContainer = document.getElementById("flower-container");
 
     // Array of emojis to use for the falling effect (2 flowers, 2 hearts)
@@ -75,22 +76,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Grab the audio element we just created
-    const bgMusic = document.getElementById("bg-music");
+    const backgroundMusic = document.getElementById("background-music");
 
     // Button click to enter site
-    enterBtn.addEventListener("click", () => {
+    enterButton.addEventListener("click", () => {
         modal.classList.add("hidden");
         setTimeout(() => modal.style.display = "none", 500); 
         
         // Start playing the background music!
-        if (bgMusic) {
-            bgMusic.play().catch(error => {
+        if (backgroundMusic) {
+            backgroundMusic.play().catch(error => {
                 console.log("Browser blocked auto-play", error);
             });
         }
     });
 
-}); // <-- This is the missing bracket that fixes the error!
+});
 
 function slideNinong(index) {
     const track = document.getElementById("ninong-track");
